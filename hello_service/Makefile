@@ -3,6 +3,7 @@
 CONTAINER  = hello_service_container
 VIRTUALENV_DIR = .venv
 LOCAL_PORT = 5001
+VOLUMES = -v $$(pwd):/code
 
 help:
 	# Print help by extracting ##-comments per target
@@ -15,16 +16,16 @@ docker-build:  ## Build Docker container
 	docker build -t $(CONTAINER) .
 
 docker-run:  ## Run Docker container
-	docker run -v $$(pwd):/code -p $(LOCAL_PORT):5000 $(CONTAINER)
+	docker run $(VOLUMES) -p $(LOCAL_PORT):5000 $(CONTAINER)
 
 docker-shell:  ## Run Docker shell
-	docker run -v $$(pwd):/code -it --rm $(CONTAINER) bash
+	docker run $(VOLUMES) -it --rm $(CONTAINER) bash
 
 docker-test:
 	docker run --rm -i -t $(CONTAINER) pytest
 
 docker-ipython:
-	docker run -v $$(pwd):/code $(CONTAINER) ipython
+	docker run $(VOLUMES) $(CONTAINER) ipython
 
 
 virtualenv-create:  ## Create virtualenv
