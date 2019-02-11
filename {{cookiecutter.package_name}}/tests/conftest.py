@@ -1,6 +1,6 @@
 import pytest
 
-from {{cookiecutter.module_name}} import hello_service
+from {{cookiecutter.module_name}} import example
 
 
 @pytest.fixture

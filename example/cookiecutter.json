@@ -1,0 +1,11 @@
+{
+  "package_name": null,
+  "project_slug": "example",
+  "description": "",
+  "module_name": "example",
+  "flask_module": "example",
+  "virtualenv_dir": ".venv",
+  "docker_container_name": "example",
+  "python_version": "3.7",
+  "pyenv_python_version": "3.7.0"
+}

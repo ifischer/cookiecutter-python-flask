@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='hello_service',
-    description='hello_service',
+    name='example',
+    description='example',
     packages=find_packages(),
     version='0.0.1',
     install_requires=[

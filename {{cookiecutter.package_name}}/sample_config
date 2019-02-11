@@ -1,5 +1,5 @@
 default_context:
-    package_name: hello_service
-    module_name: hello_service
-    description: hello_service
-    docker_container_name: hello_service_container
+    package_name: example
+    module_name: example
+    description: example
+    docker_container_name: example_service_container

@@ -1,5 +1,0 @@
-default_context:
-    package_name: hello_service
-    module_name: hello_service
-    description: hello_service
-    docker_container_name: hello_service_container

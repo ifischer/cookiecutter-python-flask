@@ -1,6 +1,6 @@
 .PHONY: help
 .DEFAULT_GOAL := help
-CONTAINER  = hello_service_container
+CONTAINER  = example_service_container
 VIRTUALENV_DIR = .venv
 LOCAL_PORT = 5001
 VOLUMES = -v $$(pwd):/code
@@ -12,16 +12,16 @@ help:
 docker-clean:
 	docker stop --rm $(CONTAINER)
 
-docker-build:  ## Build Docker container
+docker-build build:  ## Build Docker container
 	docker build -t $(CONTAINER) .
 
-docker-run:  ## Run Docker container
+docker-run run:  ## Run Docker container
 	docker run $(VOLUMES) -p $(LOCAL_PORT):5000 $(CONTAINER)
 
 docker-shell:  ## Run Docker shell
 	docker run $(VOLUMES) -it --rm $(CONTAINER) bash
 
-docker-test:
+docker-test test:
 	docker run --rm -i -t $(CONTAINER) pytest
 
 docker-ipython:
@@ -39,9 +39,9 @@ virtualenv-test:
 	$(VIRTUALENV_DIR)/bin/pytest
 
 virtualenv-run:
-	FLASK_APP=hello_service/hello_service.py $(VIRTUALENV_DIR)/bin/flask run --port $(LOCAL_PORT)
+	FLASK_APP=example/example.py $(VIRTUALENV_DIR)/bin/flask run --port $(LOCAL_PORT)
 
 
 lint:  ## Run linter (Flake8, isort)
-	docker run --rm -it $(CONTAINER) pytest --flake8
-	docker run --rm -it $(CONTAINER) pytest --isort
+	$(DOCKER_RUN) pytest --flake8
+	$(DOCKER_RUN) pytest --isort

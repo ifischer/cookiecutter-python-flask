@@ -1,6 +1,6 @@
 .PHONY: help
 .DEFAULT_GOAL := help
-CONTAINER  = hello_service_container
+CONTAINER  = example_service_container
 VIRTUALENV_DIR = .venv
 LOCAL_PORT = 5001
 VOLUMES = -v $$(pwd):/code
@@ -39,7 +39,7 @@ virtualenv-test:
 	$(VIRTUALENV_DIR)/bin/pytest
 
 virtualenv-run:
-	FLASK_APP=hello_service/hello_service.py $(VIRTUALENV_DIR)/bin/flask run --port $(LOCAL_PORT)
+	FLASK_APP=example/example.py $(VIRTUALENV_DIR)/bin/flask run --port $(LOCAL_PORT)
 
 
 lint:  ## Run linter (Flake8, isort)

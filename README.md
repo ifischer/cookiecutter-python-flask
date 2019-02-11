@@ -8,7 +8,6 @@ Features:
 * Docker as sole requirement
 * Makefile for quick access to Docker commands 
 
-
 Installation
 ------------
 
@@ -29,7 +28,7 @@ cookiecutter -o $PROJECT_HOME .
 Test
 ----
 
-To test creation of a new project with this cookiecutter, run:
+To generate the example - thereby testing the scaffold, run:
 ```
-make generate-example
+make build test
 ```

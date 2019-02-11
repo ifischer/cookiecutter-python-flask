@@ -1,4 +1,4 @@
-EXAMPLE = hello_service
+EXAMPLE = example
 
 build:  ## Create example from cookiecutter template
 	cookiecutter --overwrite-if-exists --no-input --config-file ./sample_config .
@@ -11,6 +11,6 @@ test:  ## Test generated example
 
 clean:
 	rm -rf $(EXAMPLE)/.venv
-	rm -rf $(EXAMPLE)/example_project.egg-info
+	rm -rf $(EXAMPLE)/example.egg-info
 	rm -rf $(EXAMPLE)/.pytest_cache
 	find $(EXAMPLE) -name "*.pyc" -exec rm {} \;
