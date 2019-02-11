@@ -43,5 +43,5 @@ virtualenv-run:
 
 
 lint:  ## Run linter (Flake8, isort)
-	docker run --rm -it $(CONTAINER) pytest --flake8
-	docker run --rm -it $(CONTAINER) pytest --isort
+	$(DOCKER_RUN) pytest --flake8
+	$(DOCKER_RUN) pytest --isort
